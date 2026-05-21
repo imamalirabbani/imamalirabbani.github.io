@@ -1,0 +1,17 @@
+{
+  "name": "imam-portfolio",
+  "version": "1.0.0",
+  "description": "Premium fullstack portfolio replicated precisely from adityasmukti.github.io using clean semantic HTML5 and custom responsive Vanilla CSS.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y browser-sync start --server --files \"index.html, index.css, images/**/*\""
+  },
+  "keywords": [
+    "portfolio",
+    "html",
+    "css",
+    "vanilla-css"
+  ],
+  "author": "Imam Ali Rabbani",
+  "license": "ISC"
+}
