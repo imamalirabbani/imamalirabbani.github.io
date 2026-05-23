@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     projectsGrid.innerHTML = data.projects.map(proj => `
       <div class="project-card">
         <div class="project-img-wrapper">
-          <img class="project-img" src="${proj.img}" alt="${proj.title}">
+          <img class="project-img" src="${proj.img}" alt="${proj.title}" loading="lazy" decoding="async" width="1672" height="941">
         </div>
         <div class="project-details">
           <a class="project-title-link" href="${proj.url}" target="_blank" rel="noopener noreferrer">

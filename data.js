@@ -16,8 +16,8 @@ const portfolioData = {
     ]
   },
   hero: {
-    bannerImg: "./images/BENNER.png",
-    avatarImg: "https://github.com/imamalirabbani.png",
+    bannerImg: "./images/BENNER-optimized.jpg",
+    avatarImg: "./images/profile.png",
     name: "Imam Ali Rabbani",
     role: "Fullstack Developer",
     location: "Cianjur, West Java",
@@ -97,14 +97,14 @@ const portfolioData = {
   },
   projects: [
     {
-      img: "./images/CRM.png",
+      img: "./images/CRM-optimized.jpg",
       title: "Aurumvice CRM",
       url: "https://github.com/imamalirabbani/AURUMVICE",
       description: "Omnichannel CRM platform with realtime chat, AI chatbot, and dashboard analytics features.",
       tags: ["Node.js", "CRM"]
     },
     {
-      img: "./images/E-COMERCE.png",
+      img: "./images/E-COMMERCE-optimized.jpg",
       title: "Aurumvice E-Commerce",
       url: "https://github.com/imamalirabbani/AURUMVICE",
       description: "Aurumvice brand e-commerce website.",
