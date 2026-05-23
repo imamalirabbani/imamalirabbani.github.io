@@ -1,84 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
   const data = portfolioData;
 
+  // Helper function to safely update text/HTML or attribute
+  const updateEl = (id, prop, value) => {
+    const el = document.getElementById(id);
+    if (el) el[prop] = value;
+  };
+
+  // Helper function to safely update innerHTML
+  const updateHTML = (id, html) => updateEl(id, 'innerHTML', html);
+
   // 1. Top Banner
-  const topBannerContainer = document.getElementById('top-banner-container');
-  if(topBannerContainer) {
-    topBannerContainer.innerHTML = `
+  if (data.header) {
+    const linksHTML = data.header.bannerLinks.map(link => 
+      `<a target="_blank" rel="noopener noreferrer" class="top-banner-link" href="${link.url}">${link.text}</a>`
+    ).join('');
+    updateHTML('top-banner-container', `
       <p class="top-banner-text">${data.header.bannerText}</p>
-      <div class="top-banner-links">
-        ${data.header.bannerLinks.map(link => `<a target="_blank" rel="noopener noreferrer" class="top-banner-link" href="${link.url}">${link.text}</a>`).join('')}
-      </div>
-    `;
+      <div class="top-banner-links">${linksHTML}</div>
+    `);
   }
 
-  // 2. Navbar menu
-  const navbarMenu = document.getElementById('navbar-menu');
-  if(navbarMenu) {
-    navbarMenu.innerHTML = data.navbar.links.map(link => 
+  // 2. Navbar Menu & Brand
+  if (data.navbar) {
+    updateHTML('navbar-menu', data.navbar.links.map(link => 
       `<a class="nav-link" href="${link.url}">${link.text}</a>`
-    ).join('');
-  }
-  
-  const navbarBrand = document.getElementById('navbar-brand');
-  if(navbarBrand) {
-    navbarBrand.textContent = data.navbar.brand;
+    ).join(''));
+    updateEl('navbar-brand', 'textContent', data.navbar.brand);
   }
 
   // 3. Hero Section
-  const bannerImg = document.getElementById('hero-banner-img');
-  if(bannerImg) bannerImg.src = data.hero.bannerImg;
+  if (data.hero) {
+    updateEl('hero-banner-img', 'src', data.hero.bannerImg);
+    updateEl('hero-avatar-img', 'src', data.hero.avatarImg);
+    updateEl('hero-name', 'textContent', data.name || data.hero.name);
+    updateEl('hero-role', 'textContent', data.hero.role);
+    updateEl('hero-location-text', 'textContent', data.hero.location);
+    updateEl('hero-cta-btn', 'href', data.hero.whatsappUrl);
 
-  const avatarImg = document.getElementById('hero-avatar-img');
-  if(avatarImg) avatarImg.src = data.hero.avatarImg;
-
-  const heroName = document.getElementById('hero-name');
-  if(heroName) heroName.textContent = data.hero.name;
-
-  const heroRole = document.getElementById('hero-role');
-  if(heroRole) heroRole.textContent = data.hero.role;
-
-  const heroLocation = document.getElementById('hero-location-text');
-  if(heroLocation) heroLocation.textContent = data.hero.location;
-
-  const heroCtaBtn = document.getElementById('hero-cta-btn');
-  if(heroCtaBtn) heroCtaBtn.href = data.hero.whatsappUrl;
-  
-  const socialsContainer = document.getElementById('hero-socials');
-  if(socialsContainer) {
-    socialsContainer.innerHTML = data.hero.socials.map(social => 
+    const socialsHTML = data.hero.socials.map(social => 
       `<a target="_blank" rel="noopener noreferrer" class="social-link" title="${social.name}" href="${social.url}">
         ${social.iconSvg}
       </a>`
     ).join('');
+    updateHTML('hero-socials', socialsHTML);
   }
 
   // 4. About Section
-  const aboutHeadline = document.getElementById('about-headline');
-  if(aboutHeadline) aboutHeadline.innerHTML = data.about.headline;
-
-  const aboutDesc = document.getElementById('about-desc');
-  if(aboutDesc) aboutDesc.textContent = data.about.description;
-
-  const specGrid = document.getElementById('specialization-grid');
-  if(specGrid) {
-    specGrid.innerHTML = data.about.specializations.map(spec => 
-      `<div class="specialization-badge">
-        <span class="specialization-text">${spec}</span>
-      </div>`
+  if (data.about) {
+    updateHTML('about-headline', data.about.headline);
+    updateEl('about-desc', 'textContent', data.about.description);
+    
+    const specsHTML = data.about.specializations.map(spec => 
+      `<div class="specialization-badge"><span class="specialization-text">${spec}</span></div>`
     ).join('');
+    updateHTML('specialization-grid', specsHTML);
   }
 
   // 5. Tech Stack Section
-  const techTitle = document.getElementById('techstack-title');
-  if(techTitle) techTitle.textContent = data.techStack.title;
+  if (data.techStack) {
+    updateEl('techstack-title', 'textContent', data.techStack.title);
+    updateEl('techstack-subtitle', 'textContent', data.techStack.subtitle);
 
-  const techSubtitle = document.getElementById('techstack-subtitle');
-  if(techSubtitle) techSubtitle.textContent = data.techStack.subtitle;
-
-  const techGroups = document.getElementById('techstack-groups');
-  if(techGroups) {
-    techGroups.innerHTML = data.techStack.groups.map(group => `
+    const groupsHTML = data.techStack.groups.map(group => `
       <div class="techstack-group">
         <h3 class="techstack-group-title">${group.title}</h3>
         <div class="techstack-grid">
@@ -94,12 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     `).join('');
+    updateHTML('techstack-groups', groupsHTML);
   }
 
   // 6. Featured Projects Section
-  const projectsGrid = document.getElementById('projects-grid');
-  if(projectsGrid) {
-    projectsGrid.innerHTML = data.projects.map(proj => `
+  if (data.projects) {
+    const projectsHTML = data.projects.map(proj => `
       <div class="project-card">
         <div class="project-img-wrapper">
           <img class="project-img" src="${proj.img}" alt="${proj.title}" loading="lazy" decoding="async" width="1672" height="941">
@@ -117,12 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     `).join('');
+    updateHTML('projects-grid', projectsHTML);
   }
 
   // 7. Other Services & Side Projects Section
-  const otherServicesList = document.getElementById('other-services-list');
-  if(otherServicesList) {
-    otherServicesList.innerHTML = data.otherServices.map(service => `
+  if (data.otherServices) {
+    const servicesHTML = data.otherServices.map(service => `
       <div class="tile-item">
         <a class="tile-title-link" href="${service.url}">
           <span class="tile-title">${service.title}</span>
@@ -130,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <svg class="tile-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
       </div>
     `).join('');
+    updateHTML('other-services-list', servicesHTML);
   }
 
-  const sideProjectsList = document.getElementById('side-projects-list');
-  if(sideProjectsList) {
-    sideProjectsList.innerHTML = data.sideProjects.map(proj => `
+  if (data.sideProjects) {
+    const sideHTML = data.sideProjects.map(proj => `
       <div class="tile-item">
         <a class="tile-title-link" href="${proj.url}" target="_blank" rel="noopener noreferrer">
           <span class="tile-title-large">${proj.title}</span>
@@ -142,35 +126,50 @@ document.addEventListener('DOMContentLoaded', () => {
         <svg class="tile-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
       </div>
     `).join('');
+    updateHTML('side-projects-list', sideHTML);
   }
 
   // 8. Contact Section
-  const contactHeadline = document.getElementById('contact-headline');
-  if(contactHeadline) contactHeadline.innerHTML = data.contact.headline;
+  if (data.contact) {
+    updateHTML('contact-headline', data.contact.headline);
+    updateEl('contact-desc', 'textContent', data.contact.description);
+    updateEl('contact-email', 'textContent', data.contact.email);
+    updateEl('contact-email', 'href', "mailto:" + data.contact.email);
+    updateEl('contact-location', 'textContent', data.contact.location);
 
-  const contactDesc = document.getElementById('contact-desc');
-  if(contactDesc) contactDesc.textContent = data.contact.description;
-
-  const contactEmail = document.getElementById('contact-email');
-  if(contactEmail) {
-    contactEmail.textContent = data.contact.email;
-    contactEmail.href = "mailto:" + data.contact.email;
+    const contactSocialsHTML = data.contact.socials.map(social => 
+      `<a target="_blank" rel="noopener noreferrer" class="contact-social-link" href="${social.url}">${social.name}</a>`
+    ).join('');
+    updateHTML('contact-socials', contactSocialsHTML);
+    updateEl('contact-cta-btn', 'href', data.hero?.whatsappUrl || '#');
   }
-
-  const contactLocation = document.getElementById('contact-location');
-  if(contactLocation) contactLocation.textContent = data.contact.location;
-  
-  const contactSocials = document.getElementById('contact-socials');
-  if(contactSocials) {
-    contactSocials.innerHTML = data.contact.socials.map(social => `
-      <a target="_blank" rel="noopener noreferrer" class="contact-social-link" href="${social.url}">${social.name}</a>
-    `).join('');
-  }
-
-  const contactCtaBtn = document.getElementById('contact-cta-btn');
-  if(contactCtaBtn) contactCtaBtn.href = data.hero.whatsappUrl; // using whatsapp URL from hero data
 
   // 9. Footer
-  const footerText = document.getElementById('footer-text');
-  if(footerText) footerText.textContent = data.footer.text;
+  if (data.footer) {
+    updateEl('footer-text', 'textContent', data.footer.text);
+  }
+
+  // 10. Performance & Scroll Reveal Logic (Intersection Observer)
+  const revealElements = document.querySelectorAll('section, .techstack-group, .project-card, .side-projects-row');
+  
+  revealElements.forEach(el => el.classList.add('reveal'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target); // Unobserve to improve performance after animating once
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px' // Animates slightly before element fully enters viewport
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    // Graceful fallback for older browsers
+    revealElements.forEach(el => el.classList.add('active'));
+  }
 });

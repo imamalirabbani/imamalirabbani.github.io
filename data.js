@@ -17,7 +17,7 @@ const portfolioData = {
   },
   hero: {
     bannerImg: "./images/BENNER-optimized.jpg",
-    avatarImg: "./images/profile.png",
+    avatarImg: "./images/profile.jpg",
     name: "Imam Ali Rabbani",
     role: "Fullstack Developer",
     location: "Cianjur, West Java",

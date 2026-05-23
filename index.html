@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <title>Imam Ali Rabbani — Fullstack Developer</title>
-  
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Imam Ali Rabbani's Portfolio, Fullstack Developer focusing on realtime systems, AI integration, omnichannel platforms, and scalable backend architecture using Node.js, React, Redis, and MySQL." />
+  <meta name="description"
+    content="Imam Ali Rabbani's Portfolio, Fullstack Developer focusing on realtime systems, AI integration, omnichannel platforms, and scalable backend architecture using Node.js, React, Redis, and MySQL." />
   <meta name="author" content="Imam Ali Rabbani" />
-  <meta name="keywords" content="Fullstack Developer,System Architect,Node.js,React,Socket.IO,Redis,AI Integration,Realtime Systems,Omnichannel Platform,Backend Architecture,WebSocket,Portfolio,Imam Ali Rabbani" />
+  <meta name="keywords"
+    content="Fullstack Developer,System Architect,Node.js,React,Socket.IO,Redis,AI Integration,Realtime Systems,Omnichannel Platform,Backend Architecture,WebSocket,Portfolio,Imam Ali Rabbani" />
   <meta name="creator" content="Imam Ali Rabbani" />
   <meta name="robots" content="index, follow" />
-  
+
   <!-- OG / Facebook -->
   <meta property="og:title" content="Imam Ali Rabbani — Fullstack Developer" />
-  <meta property="og:description" content="Imam Ali Rabbani's Portfolio, Fullstack Developer focusing on realtime systems, AI integration, and scalable backend architecture." />
+  <meta property="og:description"
+    content="Imam Ali Rabbani's Portfolio, Fullstack Developer focusing on realtime systems, AI integration, and scalable backend architecture." />
   <meta property="og:url" content="https://imamalirabbani.github.io/" />
   <meta property="og:site_name" content="imam.dev" />
   <meta property="og:locale" content="id_ID" />
-  <meta property="og:image" content="./icon.jpg" />
+  <meta property="og:image" content="./icon.png" />
   <meta property="og:image:width" content="150" />
   <meta property="og:image:height" content="150" />
   <meta property="og:image:alt" content="Imam Ali Rabbani" />
   <meta property="og:type" content="website" />
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Imam Ali Rabbani — Fullstack Developer" />
-  <meta name="twitter:description" content="Imam Ali Rabbani's Portfolio — Realtime Systems, AI Integration, Scalable Backend." />
-  <meta name="twitter:image" content="./icon.jpg" />
-  
-  <link rel="icon" href="./icon.jpg" sizes="150x150" type="image/jpeg" />
+  <meta name="twitter:description"
+    content="Imam Ali Rabbani's Portfolio — Realtime Systems, AI Integration, Scalable Backend." />
+  <meta name="twitter:image" content="./icon.png" />
+
+  <link rel="icon" href="./icon.png" sizes="150x150" type="image/png" />
   <link rel="canonical" href="https://imamalirabbani.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="preload" as="image" href="./images/BENNER-optimized.jpg">
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="./index.css" />
-  
+
   <!-- Structured Schema Data (JSON-LD) -->
   <script type="application/ld+json">
   {
@@ -56,23 +62,18 @@
   }
   </script>
 </head>
+
 <body>
 
   <!-- Header Banner -->
   <header>
-    <div class="top-banner">
-      <div class="container">
-        <div class="top-banner-flex" id="top-banner-container">
-          <!-- Dynamically populated -->
-        </div>
-      </div>
-    </div>
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="container">
         <div class="navbar-flex">
           <a href="#" class="navbar-brand" id="navbar-brand"></a>
-          <button class="navbar-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.navbar-menu').classList.toggle('active')">
+          <button class="navbar-toggle" aria-label="Toggle navigation"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('active')">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -87,23 +88,25 @@
 
   <!-- Main Content -->
   <main>
-    
+
     <!-- Hero Banner & Profile -->
     <section>
       <div class="container">
         <div class="hero-banner-container">
-          <img alt="Banner Portfolio Imam Ali Rabbani" class="hero-banner-img" id="hero-banner-img" src="./images/BENNER-optimized.jpg" width="1299" height="701" />
+          <img alt="Banner Portfolio Imam Ali Rabbani" class="hero-banner-img" id="hero-banner-img"
+            src="./images/BENNER-optimized.jpg" width="1299" height="701" />
         </div>
-        
+
         <div class="border-x">
           <div class="hero-profile-container content-wrapper">
-            
+
             <!-- Avatar Overlay -->
             <div class="avatar-wrapper">
-              <img alt="Foto Profil" class="avatar-img" id="hero-avatar-img" src="./images/profile.png" width="145" height="145" />
+              <img alt="Foto Profil" class="avatar-img" id="hero-avatar-img" src="./images/profile.jpg" width="145"
+                height="145" />
               <span class="avatar-badge"></span>
             </div>
-            
+
             <!-- Name & Title -->
             <div class="hero-info">
               <h1 class="hero-name" id="hero-name"></h1>
@@ -113,24 +116,26 @@
                 <p class="location-text" id="hero-location-text"></p>
               </div>
             </div>
-            
+
             <!-- CTA Actions -->
             <div class="hero-actions">
               <div class="social-links" id="hero-socials">
                 <!-- Dynamically populated -->
               </div>
-              
+
               <!-- Gradient Button -->
               <a target="_blank" rel="noopener noreferrer" class="cta-gradient-border" id="hero-cta-btn" href="#">
                 <span class="cta-button-inner">
-                  <svg class="spark-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                  <svg class="spark-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
                   </svg>
                   <span class="cta-button-text">Contact Me</span>
                 </span>
               </a>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -144,22 +149,23 @@
     <!-- About Me Section -->
     <section id="about">
       <div class="container">
-        <div class="border-x" style="background-image: url('./images/about-me/about-me-bg.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="border-x"
+          style="background-image: url('./images/about-me/about-me-bg.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
           <div class="about-section-container content-wrapper">
-            
+
             <div class="specialization-container">
               <p class="section-tag">About Me</p>
               <h2 class="about-headline" id="about-headline"></h2>
               <p class="about-desc" id="about-desc"></p>
             </div>
-            
+
             <div class="specialization-container">
               <p class="section-tag">Specializations</p>
               <div class="specialization-grid" id="specialization-grid">
                 <!-- Dynamically populated -->
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -175,7 +181,7 @@
       <div class="container">
         <div class="border-x">
           <div class="techstack-flex">
-            
+
             <!-- Left Sticky Title -->
             <div class="techstack-left">
               <div class="sticky-sidebar">
@@ -183,14 +189,14 @@
                 <p class="techstack-subtitle" id="techstack-subtitle"></p>
               </div>
             </div>
-            
+
             <!-- Right Lists -->
             <div class="techstack-right">
               <div class="techstack-groups" id="techstack-groups">
                 <!-- Dynamically populated -->
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -205,7 +211,7 @@
     <section id="projects">
       <div class="container">
         <div class="border-x">
-          
+
           <!-- Projects Header -->
           <div class="projects-header-wrapper">
             <div class="projects-header content-wrapper">
@@ -213,12 +219,12 @@
               <a target="_blank" rel="noopener noreferrer" class="btn-outline" href="/projects/">View All Projects</a>
             </div>
           </div>
-          
+
           <!-- Projects Grid -->
           <div class="projects-grid" id="projects-grid">
             <!-- Dynamically populated -->
           </div>
-          
+
         </div>
       </div>
     </section>
@@ -234,7 +240,7 @@
       <div class="container">
         <div class="border-x">
           <div class="side-projects-container content-wrapper">
-            
+
             <!-- Layanan Lainnya Row -->
             <div class="side-projects-row">
               <p class="side-projects-label">Other Services</p>
@@ -242,7 +248,7 @@
                 <!-- Dynamically populated -->
               </div>
             </div>
-            
+
             <!-- Side Projects Row -->
             <div class="side-projects-row" style="margin-top: 1.5rem;">
               <p class="side-projects-label">Side Projects</p>
@@ -266,7 +272,7 @@
       <div class="container">
         <div class="border-x">
           <div class="contact-section content-wrapper">
-            
+
             <div class="specialization-container">
               <p class="section-tag">Contact</p>
               <h2 class="contact-headline" id="contact-headline"></h2>
@@ -275,32 +281,34 @@
 
             <!-- Contact Grid Details -->
             <div class="contact-grid">
-              
+
               <div class="contact-item">
                 <p class="contact-item-label">Email</p>
                 <a class="contact-item-value" id="contact-email" href="#"></a>
               </div>
-              
+
               <div class="contact-item">
                 <p class="contact-item-label">Location</p>
                 <p class="contact-item-value" id="contact-location" style="cursor: default;"></p>
               </div>
-              
+
               <div class="contact-item" style="grid-column: span 1;">
                 <p class="contact-item-label">Social Media</p>
                 <div class="contact-social-links" id="contact-socials">
                   <!-- Dynamically populated -->
                 </div>
               </div>
-              
+
             </div>
 
             <!-- Start Conversation CTA -->
             <div style="margin-top: 3rem;">
               <a target="_blank" rel="noopener noreferrer" class="cta-gradient-border" id="contact-cta-btn" href="#">
                 <span class="cta-button-inner">
-                  <svg class="spark-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                  <svg class="spark-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
                   </svg>
                   <span class="cta-button-text" style="font-size: 1rem;">Start a Conversation</span>
                 </span>
@@ -330,4 +338,5 @@
   <script src="./data.js"></script>
   <script src="./app.js"></script>
 </body>
+
 </html>
